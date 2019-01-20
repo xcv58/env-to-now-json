@@ -1,0 +1,4 @@
+.prettierrc.yml
+.env
+now*.json
+*.tgz
