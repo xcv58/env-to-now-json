@@ -1,7 +1,7 @@
 {
   "name": "env-to-now-json",
   "version": "0.0.1",
-  "description": "Interpret .env file to now.json",
+  "description": "Convert .env file to now.json",
   "bin": "index.js",
   "main": "index.js",
   "license": "MIT",
