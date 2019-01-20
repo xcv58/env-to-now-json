@@ -1,5 +1,5 @@
 {
-  "name": "env-to-now",
+  "name": "env-to-now-json",
   "version": "0.0.1",
   "description": "Interpret .env file to now.json",
   "bin": "index.js",
