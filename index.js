@@ -60,7 +60,7 @@ yargs.command(
           alias: 'e',
           describe: 'choose an environment',
           default: 'dev',
-          choices: ['dev', 'prod'],
+          choices: ['dev', 'staging', 'prod'],
         })
         .option('output', {
           alias: 'o',

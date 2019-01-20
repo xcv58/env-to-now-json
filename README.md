@@ -30,6 +30,6 @@ Options:
   --version          Show version number                               [boolean]
   --help             Show help                                         [boolean]
   --environment, -e  choose an environment
-                                       [choices: "dev", "prod"] [default: "dev"]
+                                       [choices: "dev", "staging", "prod"] [default: "dev"]
   --output, -o       output now.json file
 ```
