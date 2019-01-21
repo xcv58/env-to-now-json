@@ -37,10 +37,20 @@ const getOutputFile = argv => {
   return `now.${environment}.json`
 }
 
-const updateNowFile = (output, variables, environment) => {
+const getOriginEnv = (file, build) => {
+  if (!build) {
+    return file.env || {}
+  }
+  if (file.build) {
+    return file.build.env || {}
+  }
+  return {}
+}
+
+const updateNowFile = (output, variables, environment, build) => {
   const file = editJsonFile(output)
-  const env = file.env || {}
-  file.set('env',Object.assign({}, env,
+  const env = getOriginEnv(file, build)
+  file.set(build ? 'build.env' : 'env',Object.assign({}, env,
     ...Object.keys(variables).map(x => ({ [x]: `@${getSecretName(x, environment)}` }))
   ))
   file.save()
@@ -66,15 +76,21 @@ yargs.command(
           alias: 'o',
           describe: 'output now.json file',
         })
+        .option('build', {
+          alias: 'b',
+          describe: 'the env file is for build environment',
+          type: 'boolean',
+        })
     },
     argv => {
-      const { env_file, environment } = argv
+      const { env_file, environment, build } = argv
       const variables = loadEnvFile(env_file)
       updateNowSecrets(variables, environment)
       updateNowFile(
         getOutputFile(argv),
         variables,
-        environment
+        environment,
+        build
       )
     },
   )
