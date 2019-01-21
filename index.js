@@ -20,7 +20,7 @@ const updateNowSecrets = (variables, environment) => {
   )
   const add = Object.entries(variables).map(
     ([key, value]) =>
-      `now secrets add ${getSecretName(key, environment)} ${value}`,
+      `now secrets add ${getSecretName(key, environment)} "${value}"`,
   )
   rm.forEach(x => console.log(x))
   add.forEach(x => console.log(x))

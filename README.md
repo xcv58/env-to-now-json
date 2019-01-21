@@ -17,8 +17,7 @@ yarn global add env-to-now-json
 ## Usage
 
 ```
-env-to-now-json --help
-
+$ env-to-now-json --help
 env-to-now-json [env_file]
 
 generate now.json config file
@@ -30,6 +29,7 @@ Options:
   --version          Show version number                               [boolean]
   --help             Show help                                         [boolean]
   --environment, -e  choose an environment
-                                       [choices: "dev", "staging", "prod"] [default: "dev"]
+                            [choices: "dev", "staging", "prod"] [default: "dev"]
   --output, -o       output now.json file
+  --build, -b        the env file is for build environment             [boolean]
 ```
